@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0476106c-7e0a-460a-afd4-f2ae25db9701</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Virus_Ultimate</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Board.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\CurrentGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\HighScores.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Round.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Score.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Square.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DBConnect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\TypeOfScore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BoardService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\GameService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RankService.cs" />
+  </ItemGroup>
+</Project>

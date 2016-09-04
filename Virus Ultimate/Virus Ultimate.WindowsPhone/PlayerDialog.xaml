@@ -1,0 +1,24 @@
+﻿<ContentDialog
+    x:Class="Virus_Ultimate.PlayerDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Virus_Ultimate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="You have new record!"
+    PrimaryButtonText="Save"  
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick">
+
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <TextBox x:Name="playerName" Header="Player name"/>
+
+        <!-- Content body -->
+        <TextBlock x:Name="body" Style="{StaticResource MessageDialogContentStyle}" TextWrapping="Wrap">
+            <TextBlock.Text>
+                Try to type unique nick name.
+            </TextBlock.Text>
+        </TextBlock>
+    </StackPanel>
+</ContentDialog>

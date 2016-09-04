@@ -1,0 +1,541 @@
+﻿<Page
+    x:Class="Virus_Ultimate.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Virus_Ultimate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+        </StackPanel>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="131,169.167,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="2,0.167,-2,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="260*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" x:Name="Results">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="18" x:Name="ScoreTextBox" Grid.Column="0" Grid.Row="0" Text="Score is:"/>
+                <TextBlock FontSize="18" x:Name="BestMoveTextBox" Grid.Column="0" Grid.Row="1" Text="Best move:"/>
+                <TextBlock FontSize="18" x:Name="RoundTextBox" Grid.Column="1" Grid.Row="0" Text="Round: "/>
+                <TextBlock FontSize="18" x:Name="MovesTextBox" Grid.Column="1" Grid.Row="1" Text="Moves: "/>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="BoardGrid" Margin="10,0,10,154.167" Height="{Binding RelativeSource={RelativeSource Self}, Path=Width}" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="17*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                    <RowDefinition Height="17*" />
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" Name="AA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="0,0,0,0"/>
+                <Border Grid.Column="1" Grid.Row="0" Name="BA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="0,0,0,0"/>
+                <Border Grid.Column="2" Grid.Row="0" Name="CA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="0,0,0,0"/>
+                <Border Grid.Column="3" Grid.Row="0" Name="DA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="0" Name="EA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="0" Name="FA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="0" Name="GA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="0" Name="HA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="0" Name="IA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="0" Name="JA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="0" Name="KA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="0" Name="LA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="0" Name="MA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="0" Name="NA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="0" Name="OA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="0" Name="PA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="0" Name="RA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="0" Name="SA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="0" Name="TA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="0" Name="UA" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="1" Name="AB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="0,0,0,0"/>
+                <Border Grid.Column="1" Grid.Row="1" Name="BB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="1" Name="CB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="1" Name="DB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="1" Name="EB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="1" Name="FB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="1" Name="GB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="1" Name="HB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="1" Name="IB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="1" Name="JB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="1" Name="KB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="1" Name="LB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="1" Name="MB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="1" Name="NB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="1" Name="OB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="1" Name="PB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="1" Name="RB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="1" Name="SB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="1" Name="TB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="1" Name="UB" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="2" Name="AC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="2" Name="BC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="2" Name="CC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="2" Name="DC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="2" Name="EC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="2" Name="FC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="2" Name="GC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="2" Name="HC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="2" Name="IC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="2" Name="JC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="2" Name="KC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="2" Name="LC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="2" Name="MC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="2" Name="NC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="2" Name="OC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="2" Name="PC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="2" Name="RC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="2" Name="SC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="2" Name="TC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="2" Name="UC" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="3" Name="AD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="3" Name="BD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="3" Name="CD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="3" Name="DD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="3" Name="ED" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="3" Name="FD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="3" Name="GD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="3" Name="HD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="3" Name="ID" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="3" Name="JD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="3" Name="KD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="3" Name="LD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="3" Name="MD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="3" Name="ND" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="3" Name="OD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="3" Name="PD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="3" Name="RD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="3" Name="SD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="3" Name="TD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="3" Name="UD" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="4" Name="AE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="4" Name="BE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="4" Name="CE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="4" Name="DE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="4" Name="EE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="4" Name="FE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="4" Name="GE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="4" Name="HE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="4" Name="IE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="4" Name="JE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="4" Name="KE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="4" Name="LE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="4" Name="ME" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="4" Name="NE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="4" Name="OE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="4" Name="PE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="4" Name="RE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="4" Name="SE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="4" Name="TE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="4" Name="UE" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="5" Name="AF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="5" Name="BF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="5" Name="CF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="5" Name="DF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="5" Name="EF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="5" Name="FF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="5" Name="GF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="5" Name="HF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="5" Name="IF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="5" Name="JF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="5" Name="KF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="5" Name="LF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="5" Name="MF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="5" Name="NF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="5" Name="OF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="5" Name="PF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="5" Name="RF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="5" Name="SF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="5" Name="TF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="5" Name="UF" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="6" Name="AG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="6" Name="BG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="6" Name="CG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="6" Name="DG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="6" Name="EG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="6" Name="FG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="6" Name="GG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="6" Name="HG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="6" Name="IG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="6" Name="JG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="6" Name="KG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="6" Name="LG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="6" Name="MG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="6" Name="NG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="6" Name="OG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="6" Name="PG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="6" Name="RG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="6" Name="SG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="6" Name="TG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="6" Name="UG" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="7" Name="AH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="7" Name="BH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="7" Name="CH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="7" Name="DH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="7" Name="EH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="7" Name="FH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="7" Name="GH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="7" Name="HH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="7" Name="IH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="7" Name="JH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="7" Name="KH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="7" Name="LH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="7" Name="MH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="7" Name="NH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="7" Name="OH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="7" Name="PH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="7" Name="RH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="7" Name="SH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="7" Name="TH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="7" Name="UH" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="8" Name="AI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="8" Name="BI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="8" Name="CI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="8" Name="DI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="8" Name="EI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="8" Name="FI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="8" Name="GI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="8" Name="HI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="8" Name="II" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="8" Name="JI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="8" Name="KI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="8" Name="LI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="8" Name="MI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="8" Name="NI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="8" Name="OI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="8" Name="PI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="8" Name="RI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="8" Name="SI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="8" Name="TI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="8" Name="UI" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="9" Name="AJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="9" Name="BJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="9" Name="CJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="9" Name="DJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="9" Name="EJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="9" Name="FJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="9" Name="GJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="9" Name="HJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="9" Name="IJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="9" Name="JJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="9" Name="KJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="9" Name="LJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="9" Name="MJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="9" Name="NJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="9" Name="OJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="9" Name="PJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="9" Name="RJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="9" Name="SJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="9" Name="TJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="9" Name="UJ" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="10" Name="AK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="10" Name="BK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="10" Name="CK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="10" Name="DK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="10" Name="EK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="10" Name="FK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="10" Name="GK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="10" Name="HK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="10" Name="IK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="10" Name="JK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="10" Name="KK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="10" Name="LK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="10" Name="MK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="10" Name="NK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="10" Name="OK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="10" Name="PK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="10" Name="RK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="10" Name="SK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="10" Name="TK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="10" Name="UK" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="11" Name="AL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="11" Name="BL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="11" Name="CL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="11" Name="DL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="11" Name="EL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="11" Name="FL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="11" Name="GL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="11" Name="HL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="11" Name="IL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="11" Name="JL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="11" Name="KL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="11" Name="LL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="11" Name="ML" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="11" Name="NL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="11" Name="OL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="11" Name="PL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="11" Name="RL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="11" Name="SL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="11" Name="TL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="11" Name="UL" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="12" Name="AM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="12" Name="BM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="12" Name="CM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="12" Name="DM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="12" Name="EM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="12" Name="FM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="12" Name="GM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="12" Name="HM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="12" Name="IM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="12" Name="JM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="12" Name="KM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="12" Name="LM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="12" Name="MM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="12" Name="NM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="12" Name="OM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="12" Name="PM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="12" Name="RM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="12" Name="SM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="12" Name="TM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="12" Name="UM" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="13" Name="AN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="13" Name="BN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="13" Name="CN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="13" Name="DN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="13" Name="EN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="13" Name="FN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="13" Name="GN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="13" Name="HN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="13" Name="IN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="13" Name="JN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="13" Name="KN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="13" Name="LN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="13" Name="MN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="13" Name="NN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="13" Name="ON" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="13" Name="PN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="13" Name="RN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="13" Name="SN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="13" Name="TN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="13" Name="UN" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="14" Name="AO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="14" Name="BO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="14" Name="CO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="14" Name="DO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="14" Name="EO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="14" Name="FO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="14" Name="GO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="14" Name="HO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="14" Name="IO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="14" Name="JO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="14" Name="KO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="14" Name="LO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="14" Name="MO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="14" Name="NO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="14" Name="OO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="14" Name="PO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="14" Name="RO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="14" Name="SO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="14" Name="TO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="14" Name="UO" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="15" Name="AP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="15" Name="BP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="15" Name="CP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="15" Name="DP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="15" Name="EP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="15" Name="FP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="15" Name="GP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="15" Name="HP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="15" Name="IP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="15" Name="JP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="15" Name="KP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="15" Name="LP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="15" Name="MP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="15" Name="NP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="15" Name="OP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="15" Name="PP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="15" Name="RP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="15" Name="SP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="15" Name="TP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="15" Name="UP" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="16" Name="AR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="16" Name="BR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="16" Name="CR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="16" Name="DR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="16" Name="ER" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="16" Name="FR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="16" Name="GR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="16" Name="HR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="16" Name="IR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="16" Name="JR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="16" Name="KR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="16" Name="LR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="16" Name="MR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="16" Name="NR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="16" Name="OR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="16" Name="PR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="16" Name="RR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="16" Name="SR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="16" Name="TR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="16" Name="UR" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="17" Name="AS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="17" Name="BS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="17" Name="CS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="17" Name="DS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="17" Name="ES" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="17" Name="FS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="17" Name="GS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="17" Name="HS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="17" Name="IS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="17" Name="JS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="17" Name="KS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="17" Name="LS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="17" Name="MS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="17" Name="NS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="17" Name="OS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="17" Name="PS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="17" Name="RS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="17" Name="SS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="17" Name="TS" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="17" Name="US" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="18" Name="AT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="18" Name="BT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="18" Name="CT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="18" Name="DT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="18" Name="ET" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="18" Name="FT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="18" Name="GT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="18" Name="HT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="18" Name="IT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="18" Name="JT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="18" Name="KT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="18" Name="LT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="18" Name="MT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="18" Name="NT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="18" Name="OT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="18" Name="PT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="18" Name="RT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="18" Name="ST" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="18" Name="TT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="18" Name="UT" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+                <Border Grid.Column="0" Grid.Row="19" Name="AU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="1" Grid.Row="19" Name="BU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="2" Grid.Row="19" Name="CU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="3" Grid.Row="19" Name="DU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="4" Grid.Row="19" Name="EU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="5" Grid.Row="19" Name="FU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="6" Grid.Row="19" Name="GU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="7" Grid.Row="19" Name="HU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="8" Grid.Row="19" Name="IU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="9" Grid.Row="19" Name="JU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="10" Grid.Row="19" Name="KU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="11" Grid.Row="19" Name="LU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="12" Grid.Row="19" Name="MU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="13" Grid.Row="19" Name="NU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="14" Grid.Row="19" Name="OU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="15" Grid.Row="19" Name="PU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="16" Grid.Row="19" Name="RU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="17" Grid.Row="19" Name="SU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="18" Grid.Row="19" Name="TU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+                <Border Grid.Column="19" Grid.Row="19" Name="UU" Background="#FFBA1C1C" Height="auto" Width="auto" Margin="2,2,2,2"/>
+
+            </Grid>
+
+
+            <Grid Grid.Row="2"  x:Name="Buttons">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+
+                <Button Grid.Column="0" Grid.Row="0" VerticalAlignment="Stretch" Background="Blue" Click="Button_Click" BorderThickness="0"/>
+                <Button Grid.Column="1" Grid.Row="0" VerticalAlignment="Stretch" Background="Red" Click="Button_Click_1" BorderThickness="0"/>
+                <Button Grid.Column="2" Grid.Row="0" VerticalAlignment="Stretch" Background="Green" Click="Button_Click_2" BorderThickness="0"/>
+                <Button Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" Background="Yellow" Click="Button_Click_3" BorderThickness="0" HorizontalAlignment="Center"/>
+                <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" Background="Purple" Click="Button_Click_4" BorderThickness="0"/>
+                <Button Grid.Column="2" Grid.Row="1" VerticalAlignment="Stretch" Background="LightGray" Click="Button_Click_5" BorderThickness="0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
