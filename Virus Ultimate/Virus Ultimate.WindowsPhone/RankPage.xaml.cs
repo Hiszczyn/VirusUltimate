@@ -30,14 +30,16 @@ namespace Virus_Ultimate
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private RankService _rankService;
-        private List<Score> _bestScores, _bestTimes, _bestMoves;
         public RankPage()
         {
             InitializeComponent();
 
+           
             navigationHelper = new NavigationHelper(this);
             navigationHelper.LoadState += NavigationHelper_LoadState;
             navigationHelper.SaveState += NavigationHelper_SaveState;
+            _rankService = new RankService();
+            getDataFromService();
         }
 
         /// <summary>
@@ -102,11 +104,7 @@ namespace Virus_Ultimate
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            _rankService = e.Parameter as RankService;
-            getDataFromService();
-            UpdateLists();
-
-
+            
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -121,19 +119,17 @@ namespace Virus_Ultimate
             _rankService = new RankService();
         }
 
-        private void getDataFromService()
+        private async void getDataFromService()
         {
-
-            _bestScores = _rankService.getTopScores(0);
-            _bestTimes = _rankService.getTopScores(1);
-            _bestMoves = _rankService.getTopScores(2);
+            var topScores = await _rankService.getTopScores();
+            UpdateLists(topScores);
         }
  
-        private void UpdateLists()
+        private void UpdateLists(List<Score> topScores)
         {
             int i = 1;
             TextBlock control;
-            foreach (var result in _bestScores)
+            foreach (var result in _rankService.ScoreByTypeFilter(topScores,0))
             {
                 control = (TextBlock)FindName("scorePlaceTB"+i);
                 control.Visibility = Visibility.Visible;
@@ -148,7 +144,7 @@ namespace Virus_Ultimate
                 i++;
             }
             i = 1;
-            foreach (var result in _bestMoves)
+            foreach (var result in _rankService.ScoreByTypeFilter(topScores, 2))
             {
                 control = (TextBlock)FindName("movesPlaceTB" + i);
                 control.Visibility = Visibility.Visible;
@@ -164,7 +160,7 @@ namespace Virus_Ultimate
             }
 
             i = 1;
-            foreach (var result in _bestTimes)
+            foreach (var result in _rankService.ScoreByTypeFilter(topScores, 1))
             {
                 control = (TextBlock)FindName("timePlaceTB" + i);
                 control.Visibility = Visibility.Visible;

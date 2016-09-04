@@ -33,6 +33,8 @@ namespace Virus_Ultimate
             navigationHelper = new NavigationHelper(this);
             navigationHelper.LoadState += NavigationHelper_LoadState;
             navigationHelper.SaveState += NavigationHelper_SaveState;
+
+            _rankservice = new RankService();
             _playerDialog = new PlayerDialog();
             _boardService = new BoardService();
             _gameService = new GameService();
@@ -118,8 +120,6 @@ namespace Virus_Ultimate
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            _rankservice = e.Parameter as RankService;
-            var a = _rankservice.getTopScores(0);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -266,17 +266,18 @@ namespace Virus_Ultimate
             bool time = false;
             bool score = false;
             bool move = false;
-            if (_rankservice.getTopScores(0)[_rankservice.getTopScores(0).Count - 1].Result < _gameService._game.Score)
+            var scores = await _rankservice.getTopScores();
+            if (_rankservice.ScoreByTypeFilter(scores, 0)[_rankservice.ScoreByTypeFilter(scores, 0).Count - 1].Result < _gameService._game.Score)
             {
                 hasBeenShowed = true;
                 score = true;
             }
-            if (_rankservice.getTopScores(1)[_rankservice.getTopScores(1).Count - 1].Result > _gameService._game.BestTime)
+            if (_rankservice.ScoreByTypeFilter(scores, 1)[_rankservice.ScoreByTypeFilter(scores, 1).Count - 1].Result > _gameService._game.BestTime)
             {
                 hasBeenShowed = true;
                 time = true;
             }
-            if (_rankservice.getTopScores(2)[_rankservice.getTopScores(2).Count - 1].Result < _gameService._game.BestMove)
+            if (_rankservice.ScoreByTypeFilter(scores, 2)[_rankservice.ScoreByTypeFilter(scores, 2).Count - 1].Result < _gameService._game.BestMove)
             {
                 hasBeenShowed = true;
                 move = true;
@@ -289,12 +290,13 @@ namespace Virus_Ultimate
                     await _playerDialog.ShowAsync();
                     _gameService._game.Playername = _playerDialog._name;
                 }
+                string response;
                 if (score)
-                    _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.Score, 0);
+                    response = await _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.Score, 0);
                 if (time)
-                    _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.BestTime, 1);
+                    response = await _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.BestTime, 1);
                 if (move)
-                    _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.BestMove, 2);
+                    response = await _rankservice.addNewScore(_gameService._game.Playername, _gameService._game.BestMove, 2);
                 await RecordMessageBoxDisplay();
             }
             LoseMessageBoxDisplay();

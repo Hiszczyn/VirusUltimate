@@ -33,12 +33,12 @@ namespace Virus_Ultimate
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage), _rankService);
+            Frame.Navigate(typeof(GamePage));
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(RankPage), _rankService);
+            Frame.Navigate(typeof(RankPage));
         }
     }
 }
