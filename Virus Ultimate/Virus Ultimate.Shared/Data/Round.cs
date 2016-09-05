@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Virus_Ultimate.Enums;
 
 namespace Virus_Ultimate.Data
 {
     public class Round
     {
         public int RoundNumber;
-        public int RoundType;
+        public RoundType Type;
         public int Limit;
 
-        public Round(int num, int type, int limit)
+        public Round(int num, RoundType type, int limit)
         {
             RoundNumber = num;
-            RoundType = type;
+            Type = type;
             Limit = limit;
         }
     }

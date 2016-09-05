@@ -139,9 +139,13 @@ namespace Virus_Ultimate.Services
 
         private void setPatient0()
         {
-            switch (_board.RoundObject.RoundType)
+            switch (_board.RoundObject.Type)
             {
-                case 0:
+                case Enums.RoundType.middle:
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 9).ToList().First().Status = 0;
+                    _board.Outcluded = 0;
+                    break;
+                case Enums.RoundType.first:
                     _board.Squares.Where(s => s.Column == 0 && s.Row == 0).ToList().First().Status = 0;
                     _board.Outcluded = 0;
                     break;
