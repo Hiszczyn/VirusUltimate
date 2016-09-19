@@ -36,11 +36,28 @@ namespace Virus_Ultimate.Services
         };
 
         private Round[] _rounds = {
-                new Round(1,0,45),
-                new Round(2,0,42),
-                new Round(3,0,40),
-                new Round(4,0,39),
-                new Round(5,0,38),
+                new Round(1,Enums.RoundType.first,45),
+                new Round(2,Enums.RoundType.first,42),
+                new Round(3,Enums.RoundType.middle,35),
+                new Round(4,Enums.RoundType.middle,32),
+                new Round(5,Enums.RoundType.withMiddleSquare,42),
+                new Round(6,Enums.RoundType.withMiddleSquare,40),
+                new Round(7,Enums.RoundType.withMiddleDiagonale,45),
+                new Round(8,Enums.RoundType.withMiddleDiagonale,42),
+                new Round(9,Enums.RoundType.first,40),
+                new Round(10,Enums.RoundType.first,38),
+                new Round(11,Enums.RoundType.middle,30),
+                new Round(12,Enums.RoundType.middle,28),
+                new Round(13,Enums.RoundType.withMiddleSquare,38),
+                new Round(14,Enums.RoundType.withMiddleSquare,36),
+                new Round(15,Enums.RoundType.withMiddleDiagonale,41),
+                new Round(16,Enums.RoundType.withMiddleDiagonale,40),
+                new Round(17,Enums.RoundType.first,36),
+                new Round(18,Enums.RoundType.first,34),
+                new Round(19,Enums.RoundType.first,32),
+                new Round(20,Enums.RoundType.first,31),
+                new Round(21,Enums.RoundType.first,30)
+
             };
 
         public readonly Dictionary<int, Color> _squareColor = new Dictionary<int, Color>()
@@ -50,19 +67,21 @@ namespace Virus_Ultimate.Services
             [2] = Colors.Green,
             [3] = Colors.Yellow,
             [4] = Colors.Purple,
-            [5] = Colors.LightGray
+            [5] = Colors.LightGray,
+            [6] = Colors.Black
         };
 
-        public readonly Dictionary<Color,int> _squareColorNumber = new Dictionary<Color, int>()
+        public readonly Dictionary<Color, int> _squareColorNumber = new Dictionary<Color, int>()
         {
             [Colors.Blue] = 0,
             [Colors.Red] = 1,
             [Colors.Green] = 2,
             [Colors.Yellow] = 3,
             [Colors.Purple] = 4,
-            [Colors.LightGray] =5
+            [Colors.LightGray] = 5
         };
         #endregion
+
 
         public BoardService()
         {
@@ -148,6 +167,103 @@ namespace Virus_Ultimate.Services
                 case Enums.RoundType.first:
                     _board.Squares.Where(s => s.Column == 0 && s.Row == 0).ToList().First().Status = 0;
                     _board.Outcluded = 0;
+                    break;
+                case Enums.RoundType.withMiddleSquare:
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 9).ToList().First().Status = 0;
+                    _board.Outcluded = 28;
+
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 7).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 7).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 6).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 6).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 6 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 6 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 5).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 5).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 5 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 5 && s.Row == 8).ToList().First().Color = 6;
+
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 11).ToList().First().Status = 0;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 12).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 12).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 13).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 13).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 13 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 13 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 14).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 14).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 14 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 14 && s.Row == 11).ToList().First().Color = 6;
+
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 8).ToList().First().Status = 0;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 7).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 7).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 6).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 6).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 13 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 13 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 5).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 5).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 14 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 14 && s.Row == 8).ToList().First().Color = 6;
+
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 11).ToList().First().Status = 0;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 12).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 12).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 6 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 6 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 13).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 13).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 5 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 5 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 14).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 14).ToList().First().Color = 6;
+
+                    break;
+
+                case Enums.RoundType.withMiddleDiagonale:
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 9).ToList().First().Status = 0;
+                    _board.Outcluded = 12;
+
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 10).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 10).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 9).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 9).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 8).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 9 && s.Row == 7).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 9 && s.Row == 7).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 6).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 6).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 5).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 5).ToList().First().Color = 6;
+
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 13).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 12 && s.Row == 13).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 12).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 11 && s.Row == 12).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 11).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 10 && s.Row == 11).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 9 && s.Row == 10).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 9 && s.Row == 10).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 9).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 8 && s.Row == 9).ToList().First().Color = 6;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 8).ToList().First().Status = 2;
+                    _board.Squares.Where(s => s.Column == 7 && s.Row == 8).ToList().First().Color = 6;
+
                     break;
                 default:
                     break;

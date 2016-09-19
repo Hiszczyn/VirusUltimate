@@ -7,6 +7,7 @@ namespace Virus_Ultimate.Data
     public class Board
     {
         public List<Square> Squares;
+        public int SquaresInGame;
         public int Infected;
         public Round RoundObject;
         public int DoneMoves;
