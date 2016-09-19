@@ -9,6 +9,7 @@ using Windows.UI.Popups;
 using Windows.Phone.UI.Input;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -203,7 +204,9 @@ namespace Virus_Ultimate
                         mar.Left = 0;
                         mar.Right = 0;
                         mar.Top = 0;
-                        mar.Bottom = 0;
+                        mar.Bottom = 0; 
+                        var animationForBorder = (Storyboard)FindName("an"+squareName);
+                        animationForBorder.Begin();
                     }
                     else
                     {
