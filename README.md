@@ -3,3 +3,4 @@
 NewSynced Board
 Synced US2
 Newest synced Issue. AB#12
+My first issue. AB#14
