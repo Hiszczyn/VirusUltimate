@@ -1,0 +1,2 @@
+- name: Transfer Issue & Create Stub
+  uses: lando/transfer-issue-action@v2.0.3
