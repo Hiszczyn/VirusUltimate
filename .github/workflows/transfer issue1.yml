@@ -11,5 +11,5 @@ jobs:
       - name: Pass the received secret to an action
         uses: lando/transfer-issue-action@v2.0.3
         with: 
-          token: ${{ secrets.ACCESSTOKEN }} 
+          token: ${{ secrets.CLASSICACCESSTOKEN }} 
           router: stale:ex1
