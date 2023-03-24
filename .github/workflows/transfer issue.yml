@@ -1,0 +1,21 @@
+name: transfer issue
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Moving issue to ex1
+        uses: lando/transfer-issue-action@v2.0.3
+        with: 
+          token: ${{ secrets.CLASSICACCESSTOKEN }} 
+          router: ex1:ex1
+      
+      - name: Moving issue to example1
+        uses: lando/transfer-issue-action@v2.0.3
+        with: 
+          token: ${{ secrets.CLASSICACCESSTOKEN }} 
+          router: example1:example1
