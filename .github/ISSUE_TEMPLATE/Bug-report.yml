@@ -1,0 +1,19 @@
+name: "🐛 Bug Report"
+description: Create a new ticket for a bug.
+title: "🐛 [BUG] - <title>"
+labels: [
+  "bug",
+  [chosen-product]
+]
+body:
+  - type: dropdown
+    id: chosen-product
+    attributes:
+      label: "Product"
+      description: What product it is?
+      multiple: true
+      options:
+        - Elsmart
+        - Netbas
+    validations:
+      required: true
