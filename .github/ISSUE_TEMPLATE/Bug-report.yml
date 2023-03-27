@@ -1,19 +1,97 @@
 name: "🐛 Bug Report"
-description: Create a new ticket for a bug.
-title: "🐛 [BUG] - <title>"
-labels: [
-  "bug",
-  ":chosen-product:"
-]
+description: Register customer defects or other things that are not working as it should.
+labels: bug
 body:
-  - type: dropdown
-    id: chosen-product
+  - type: markdown
     attributes:
-      label: "Product"
-      description: What product it is?
-      multiple: true
+      value: |
+        **_Note!_** If this issue is connected to a support ticket, start the title with _(POWELID:XXXXXX)_. 
+        
+        Use [this template](https://github.com/Volue/pg-netbas-suite-inbox/issues/new?assignees=&labels=upgrade+problem&template=upgrade-problem.yml) for upgrade problems.
+        
+        More information about how to register an issues can be found [here](https://refactored-garbanzo-a45f432f.pages.github.io/register-github-issue.html). 
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Support priority
+      description: |
+        For support tickets you must set support priority according to the [Incident & Problem management](https://volue.sharepoint.com/sites/CreateCustomerValue?xsdata=MDN8MDF8fDk4MGQxOWZlYmZkNTQyZjA4ZDRmZGE3MmEyOWU4Y2M4fDljZTc2ZDQyNWVjYjRkOGY5MzliYTQ2MmFkMjhjZjM0fDB8MHw2Mzc4NzQzMTc5MTk2MTU5MzN8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT0%3D&sdata=cEFOSFZHVTJ5TU80dG9DZTlkaW9Nbm9ocEk3TkdDcWRiU3RsTzJBMVdRWT0%3D&ovuser=9ce76d42-5ecb-4d8f-939b-a462ad28cf34%2Cvilde.rye-holmboe%40volue.com&OR=Teams-HL&CT=1651840594467&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA0MDExMTQwOSJ9#/Customer%20Value/245) in Volue Quality (see section about **Prioritise incident**).
+
+      multiple: false
       options:
-        - Elsmart
-        - Netbas
+        - P1
+        - P2
+        - P3
+        - P4
     validations:
       required: true
+      
+  - type: markdown
+    attributes:
+      value: _**Note!**_ If you are reporting a P1 or P2 issue, you must contact the scrum master/backlog owner directly on Teams with a link to the issue. Unsure who to contact? See the [product overview](https://volue.sharepoint.com/sites/PowerGridDepartmentTeam6864/SitePages/Product-overview.aspx) or the [development team overview](https://volue.sharepoint.com/sites/PowerGridDepartmentTeam6864/Lists/Development%20teams/AllItems.aspx?viewid=819c05d5%2D38ea%2D4458%2Dad3e%2D15513b139f50&as=json).
+
+  - type: input
+    id: customer
+    attributes:
+      label: Customer
+    validations:
+      required: false
+
+  - type: input
+    id: application-version
+    attributes:
+      label: Application and version
+      placeholder: ex. NETBAS 13.2
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Oracle version
+      placeholder: ex. 19.16
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Link to log files/dump
+      placeholder: ex. https://volue-my.sharepoint.com/personal/....
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Reproduced on database and server
+      description: If you have not been able to reproduce the problem leave this field blank.
+      placeholder: ex. tdtrhnb009 and tdtrhnb005_lk132
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: OS or browser
+      description: Add information about operating system or browser if relevant to the bug.
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: Describe the bug. Add information that can be relevant, e.g. expected behavior, prior steps before the bug occurs etc.
+      placeholder: |
+        1. Click...
+        2. Window opens..
+        3. Run '...'
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Error SQL message 
+      description: Add any SQL error messages you received.
+      render: sql
+    validations:
+      required: false
