@@ -12,10 +12,10 @@ jobs:
         uses: lando/transfer-issue-action@v2.0.3
         with: 
           token: ${{ secrets.CLASSICACCESSTOKEN }} 
-          router: Elsmart:Elsmart-Inbox
+          router: Product-Elsmart:Elsmart-Inbox
       
       - name: Moving issue to NETBAS repo
         uses: lando/transfer-issue-action@v2.0.3
         with: 
           token: ${{ secrets.CLASSICACCESSTOKEN }} 
-          router: NETBAS:NETBAS-inbox
+          router: Product-NETBAS:NETBAS-inbox
